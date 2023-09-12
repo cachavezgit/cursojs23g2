@@ -1,0 +1,7 @@
+const funciones = require('./exportacionNodeJSV2.js');
+
+const tabla = [298,387,342,123,654,123];
+console.log(funciones.promedioNumeros(tabla)); 
+
+console.log(`El valor de PI es ${funciones.PI}` );
+
