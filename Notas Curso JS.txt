@@ -1,0 +1,1122 @@
+Javascript Programming
+
+Lunes 4
+
+Javascript ---> 1995
+	----> Browser Wars (Netscape vs IE) 1995-1998 VBScript, Javascript, PerlScript  ----> Javascript
+	----> DOM Document Object Model y DHTML (Dynamic) 1997
+	----> AJAX 2005
+	----> JQuery 2006
+	----> Node JS 2009
+	----> ES6 (ECMAscript 6) 2015
+	----> React Native (Android/iOS) 2015
+	----> Typescript (Angular, Vue, React)
+
+IDE 
+	Chrome o Edge (Web Browsers)
+	Visual Studio Code/Sublime,Atom,Notepad++
+		https://code.visualstudio.com/download
+		18.1.x
+	NodeJS
+		https://nodejs.org/en/download/current
+		LTS
+		node-v18.17.1-x64
+			node -v	------> 18.7.1
+			npm -v -------> 9.6.7 Node Package Manager
+				Equivalente a 
+					Maven, Gradle ---> JAVA
+					Nuget -----------> Visual Studio
+					Composer --------> PHP
+					pip -------------> Python
+
+Javascript -> Lenguaje no compilado, es interpretado.
+
+alert y prompt de javascript solo funcionan en browsers.
+
+ReferenceError: prompt is not defined   -----> Node JS
+
+const prompt = require('prompt-sync');   <------- se hace referencia a una librería
+
+npm install prompt-sync
+
+package.json
+{
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
+npm install
+
+	Javascript Strings
+		' '
+		" "
+		` ` (backticks) <---- puede interpolar variables que es mejor que la concatenación
+						${______variable_______}
+
+Edge Javascript Engine
+	--------------------------> 
+Chrome JS Engine 
+	Chrome V8 para interpretar y ejecutar el código de JavaScript
+
+Vanilla Javascript ---> Escribir una aplicación sin usar frameworks o librerías adicionales.
+
+JQuery
+	uncompressed jquery.....js
+	compressed.....min.js
+
+	Al desplegar una app que tiene código de javascript -----> pipeline ---- js --> min.js
+
+VARIABLES, OPERATORS
+
+	Javascript no es un lenguaje tipeado (Strongly Typed)
+
+"use strict";
+
+numero = 10;
+
+Definir variables
+
+	var  de toda la vida en JS
+		no block scope
+	let  a partir del ES6
+		si hay block scope
+
+Definir constantes
+	const a partir del ES6
+
+JavaScript has seven primitives: String, Number, BigInt, Boolean, Symbol, undefined,and null. 
+	BigInt (ES2020) y Symbol (ES6) en adelante....
+
+
+String
+	
+	Javascript Strings
+		' '
+		" "
+		` ` (backticks) <---- puede interpolar variables que es mejor que la concatenación
+						${______variable_______}
+Number
+	let intNr = 1;
+	let decNr = 1.5;
+	let expNr = 1.4e15;
+	let octNr = 0o10; //decimal version would be 8
+	let hexNr = 0x3E8; //decimal version would be 1000
+	let binNr = 0b101; //decimal version would be 5
+
+Martes 5Sep23
+
+BigInt
+	number data type are between 253-1 and -(253-1)
+
+Boolean
+	true
+	false
+
+Symbol 
+	let sym1 = Symbol("JavaScript is fun!");
+	let sym2 = Symbol("JavaScript is fun!");
+	console.log("These two Symbols are the same:", sym1 === sym2);
+
+undefined
+null
+	object data type .... valor = null
+
+let nr1 = 2;
+let nr2 = "2";
+console.log(nr1 * nr2);
+console.log(nr1 + nr2);
+
+There are three conversion methods: String(), Number(), and Boolean()
+
+let strToNr = "doce";
+strToNr = Number(strToNr);
+console.log(strToNr, typeof strToNr);		NaN Not A Number
+
+	isNaN()
+
+	Ejercicio: 
+		Aritmetico.html
+		Aritmetico.js
+
+			Usando prompt solicitar dos números al usuario
+			Ejecutar las 4 operaciones aritméticas y mandarlo a console.log
+			Si nos manda algo que sea un número notificarlo en console.log
+
+Operators
+
+	Arithmetic + - * / ** %
+
+	Unary ++ --   -> prefijo o sufijo
+
+	pitagoras.js
+
+	prompt
+		cateto 1
+		cateto 2
+		hipotenusa
+
+		Se trata de un Triangulo Rectangulo???
+
+	Assignación 	= += *= /= -=
+
+		= asignación    == igualdad   === identidad
+
+	Comparison
+		== != === > >= < <=
+
+	Logical 
+		&&  ||  !  AND OR NOT
+		&   |  
+
+		if (A>5 & B>6)		
+		if (A>5 && B>6)
+
+		if (B<4 || C<2)
+
+CONDITIONAL STATEMENTS AND LOOPS
+
+	if {}
+	if {} else {}
+	if {} else if {} else if {} else {}
+
+	Ternary Operator   ?_______:________
+
+	switch
+
+Miércoles 6Sep
+
+• while loop
+• do while loop
+
+• for loop
+• for in
+• for of
+
+forEach ( lambda functions) después...
+
+• while loop
+• do while loop
+
+let numeral = 10;
+
+while (numeral <= 20) {
+    console.log(numeral++);
+    //numeral++;
+}
+
+//numeral = 47;
+do {
+    console.log(numeral++);
+    //numeral++;
+} while (numeral <= 30);
+
+	ARRAY
+
+	let frutas = [];
+	let nombres = ['Juan', 'Pedro', 'Maria'];
+
+	nombres.length
+
+	frutas.push(fruta);
+	
+• for loop
+
+for(let i=0;i<10;i++)   {
+    console.log(i);
+}
+
+for (let i = 0, j=98; i < 100; i=i+2,j-=2) {
+    arr.push(i);
+    arr2.push(j);
+}
+
+	Arrays []
+	Objetos {}
+	console.log(JSON.stringify(resultados));
+
+• for of
+	Recorrer Arrays sin utilizar un indice numérico
+
+	for (let fruta of frutas_array) {
+	    console.log(fruta);
+	}
+	
+• for in
+	recorrer las propiedades de un objeto
+
+for (let key in automovil) {
+    console.log(`${key}: ${automovil[key]}`);
+}
+
+
+const fs = require('fs'); // <---- Importar el modulo fs
+
+const frutas_info = fs.readFileSync('C:\\Users\\cachavez\\CursoJS\\loops\\frutas.txt', 'utf8'); // <---- Recupera el contenido del archivo en un string
+
+Registros.txt
+1,Carlos Ivan Chavez Fuentes,Hermosillo,Developer
+2,Maria Roiz,Campeche,QA Tester
+3,Victor Garcia,Sao Paulo,Developer
+4, Mauricio Gomez, Maracaibo, Project Leader
+
+Ejercicio:
+	Leer el archivo registros.txt
+	Usar los ciclos a conveniencia para al final tener un arreglo de objetos y expresarlo en un resultado JSON
+		[
+			{  id:1,
+			   nombre: Carlos Ivan ....
+			   ciudad: Hermosillo,
+			   rol: Developer
+			}, ...
+		]
+	
+Jueves 7Sep23
+
+Functions
+
+• Basic functions
+• Function arguments
+• Return
+• Variable scope in functions
+• Recursive functions
+• Nested functions
+• Anonymous functions
+• Function callbacks
+
+Math.pow
+Math.floor
+fs.readfileasync
+
+cadena.split
+
+VB.NET
+	Sub
+	Function
+
+Object Pascal/Delphi
+	Procedure
+	Function
+
+C, C++, C#, Java
+
+	public void procesaReporte() {
+
+	}
+
+	public List<Cliente> buscaClientes(int codigoSucursal) {
+
+	}
+
+Javascript
+
+	function procesaNumero() {
+
+	}
+
+let numero = 8;
+
+const elevaAlCubo = function(num) {
+    return num * num * num;
+}
+
+imprimeMensaje();
+console.log(`El cuadrado de ${numero} es: ${elevaAlCuadrado(numero)}`);
+console.log(`El cubo de ${numero} es: ${elevaAlCubo(numero)}`);
+
+function imprimeMensaje() {
+    console.log("Mensaje");
+}
+
+function elevaAlCuadrado(num) {
+    return num * num;
+
+
+function addTwoNumbers(x = 2, y = 3) {
+console.log(x + y);
+}
+
+arrow functions
+
+	() => body of the function;
+
+	() => {
+
+	};
+
+Recapitulando:
+	named functions -> 1995
+
+		function calculo() {
+
+		}
+
+	anonymous functions -> ES5 2009
+
+		const fx = function() {
+
+		};
+
+	arrow functions -> ES6 2015
+
+		const fx = () => {
+
+		};
+
+const calculo = (x, y) => x * y;
+
+console.log(calculo(2, 3));
+console.log(calculo(82, 32));
+
+const mayorDeDosNumerosArrow = (num1, num2) => num1 >= num2? num1 : num2; // one-liner
+
+const calculaPromedio = (arr) => arr.reduce((sumaNumeros, nuevoNumero) => sumaNumeros + nuevoNumero, 0)/arr.length;
+
+const revisaCondicionesArreglo = (arreglo, condicion) => arreglo.every(condicion);
+
+const funcionFlechaHolaMundo = () => {
+    console.log('Hola Mundo');
+};
+
+funcionFlechaHolaMundo();
+
+function mayorDeDosNumeros(num1, num2) {
+    return num1 >= num2? num1 : num2;
+}
+
+console.log(`El mayor de los números 1000 y 456 es: ${mayorDeDosNumeros(1000, 456)}`);
+console.log(`El mayor de los números 1000 y 456 es: ${mayorDeDosNumerosArrow(1000, 456)}`);
+
+const arregloNumeros = [2, 4, 10, 40, 50, 60];
+console.log(`El promedio de los números es: ${calculaPromedio(arregloNumeros)}`);
+
+console.log(`Se cumple que todos sean multiplos de dos: ${revisaCondicionesArreglo(arregloNumeros, num=> num % 2 === 0)}`);
+
+arregloNumeros.forEach(numero => {
+    console.log(numero)
+});
+
+
+Spread Operator ...
+
+	The spread operator in JavaScript is a syntax introduced in ECMAScript 6 (ES6) 
+	that allows you to spread the elements of an iterable (such as arrays, strings, or objects), 
+	into another iterable or function call. 
+
+	It is denoted by three dots “ ... ” followed by an expression or an iterable.
+
+	Spread -> esparcir, desparramar, distribuir
+
+Viernes 8Sep23
+
+	named functions -> 1995
+
+		function calculo() {
+
+		}
+
+	anonymous functions -> ES5 2009
+
+		const fx = function() {
+
+		};
+
+	arrow functions -> ES6 2015
+
+		const fx = () => {
+
+		};
+
+SCOPE ----> VARIABLES scope? out of scope?
+
+	GLOBAL SCOPE ----> Variables y Constantes no definidas dentro de alguna función
+
+		let, var
+
+	FUNCTION SCOPE (function)
+
+		var
+
+	BLOCK SCOPE  (if, while, switch, for)
+
+		let
+
+HOISTING es un comportamiento default de Javascript, cuando ve una variable que no está definida
+No es una buena práctica, puede haber resultados inesperados
+se puede evitar "use strict";
+
+function proceso() {
+    dato = 40;  // <----- hoisting (elevar) JS eleva la variable a global scope
+}
+
+EJERCICIO: CalcularFactorial.js USANDO recursividad
+
+	prompt ---> numero?
+	5! 5x4x3x2x1 = 120
+
+const fac = (num) =>num>0 ? num * fac(num-1) : 1;
+
+const factorial  = (num) => {
+    if (isNaN(num) || num < 0 || num>100) return;
+
+    if (num === 0) return 1;
+    if (num === 1) return 1;
+
+    return num * factorial(num-1);
+}
+
+Closure is a nested function that has access to the parent variables, even after the parent has executed.
+
+	Containing function, parent, outer
+	Contained function, child, inner o nested function
+
+	Ejercicio: Crear una funcion externa que se llame cadenas que permita lo siguiente:
+
+	let s = "Este es un texto de prueba";
+	cadenas.cuentaCaracteres(s);
+
+	cadenas.invierteCadena() <------abeurp ed otxet nu se ets
+
+
+	Ejercicio:
+	factorial.html factorial.js
+
+Lunes 11Sept23
+
+Object Oriented Programming
+
+• Object-oriented programming
+• Classes and objects
+• Classes
+• Inheritance
+• Prototypes
+
+	OOP --> Paradigma
+				Structured Programming
+				Object Oriented Programming
+				Functional Programming
+
+	OOP ->  A finales de los 70's surge SmallTalk un lenguaje OOP
+		En los 90's agarra el impulso, C++ soporta la programación OOP, Visual Fox Pro 3.0 (OOP), Java (OOP)
+
+		Javascript no es exclusivamente OOP, soporta programación estructurada y la OOP.
+
+	OOP -> Abstracción (Recursos Humanos Empleado, Nomina, Prestacion, Vacaciones), Encapsulamiento, Herencia
+
+		GRAN BENEFICIO: Reusabilidad de código, facilitar el mantenimiento, eliminar redundancia
+
+		Java -> System.out.println("Hola Mundo");
+		C# ---> Console.WriteLine("Hola Mundo");
+
+		En la OOP se utilizan Clases y Objetos
+		
+			Clases ----> Templates para definir objetos
+			Objeto ----> Se basa en una clase para definir su estructura
+
+Javascript soporta objectos anónimos:
+
+let dog = { 
+		dogName: "JavaScript",
+		weight: 2.4,
+		color: "brown",
+		breed: "chihuahua"
+	   }; 
+
+class Dog {                  // <----- formato ES6 para crear una clase en JavaScript
+    constructor(n='', p=0, c='', r='') {
+        this.nombre = n;
+        this.peso = p;       // this -> "este objeto"
+        this.color = c;
+        this.raza = r;
+    }
+}
+
+	SyntaxError: A class may only have one constructor
+
+
+EJERCICIO: Agregar la clase Triangulo
+		se le podrá asignar valor a la base y a la altura
+
+		se podrá obtener el valor del area del triángulo (base x altura)/2
+
+		pedirle con prompt la base y la altura y probar que funcione.
+
+Las propiedades que se definen en el constructor son por default públicas
+
+class Triangulo {
+    #base=0;
+			<------ Por el simbolo de # se trata de propiedades propiedades. Como "private" en Java y C#
+    #altura=0;
+
+    constructor(base, altura){
+        this.#base = base;
+        this.#altura = altura;
+    }
+
+    calcularArea(){
+        return (this.#base * this.#altura)/2;
+    }
+
+}
+
+Getters and Setters
+
+	C# o Java
+	public class Circulo {
+		private int radio=0;
+
+		public void setRadio (int radio) {
+			this.radio = radio;
+		}
+
+		public int getRadio() {
+			return this.radio;
+		}	
+
+		...
+	}
+
+	Circulo c = new Circulo();
+	c.setRadio(5)
+	c.calcularArea...
+
+class Circulo {
+    #radio=0;
+
+    constructor(radio) {
+        this.#radio=radio;
+    }
+
+    get getRadio() {
+        return this.#radio;
+    }
+
+    set setRadio(valor) { 
+        this.#radio = valor;
+    }
+
+    calcularArea() {
+        return (Math.PI * this.#radio**2).toFixed(2);
+    }
+}
+
+const radio = prompt('Digite el radio: ');
+
+const circulo = new Circulo(radio);
+
+//circulo.setRadio=radio;
+
+console.log(`El area del circulo con radio de ${circulo.getRadio} es: ${circulo.calcularArea()}`);
+
+HERENCIA (INHERITANCE) Una relación de arriba hacia abajo entre dos clases. La clase derivada, hija, obtiene por herencia todos los elementos
+	no privados de la clase base o padre.La clase hija puede extender las características de la clase padre.
+
+Parent Class -> Child Class
+Superclass  -> Subclass
+Base class > Derived class
+
+class Girasol extends Flor {  // extends es el conector de herencia. "Girasol es una flor"
+    
+}
+
+class Tulipan extends Flor { 
+    
+}
+
+EJERCICIO: Crear el archivo Banco.js
+
+	Crear la clase CuentaBancaria
+		----> nombre del titular
+		----> saldo de la cuenta
+
+		----> imprimeDetalleCuenta()
+
+		Crear la subclase TarjetaDeCredito
+			---> limiteDeCredito
+					
+			---> comprar()
+			---> modificar imprimeDetalleCuenta
+
+		Crear la sublase Pagaré
+			---> tasa de Inversión
+
+			---> calculoRendimiento
+			---> modificar imprimeDetalleCuenta
+
+class CuentaBancaria {
+    constructor(titular, saldo) {
+        this.titular = titular;
+        this.saldo = saldo;
+    }
+
+    imprimeDetallesCuenta() {
+        console.log(`Titular: ${this.titular} Saldo: ${this.saldo} `);
+    }
+}
+
+class Pagare extends CuentaBancaria {
+    constructor(titular, saldo, tasaDeInversion) { 
+        super(titular, saldo);
+        this.tasaDeInversion = tasaDeInversion;
+    }
+
+    imprimeDetallesCuenta() {
+        super.imprimeDetallesCuenta();
+        console.log(`Tasa de Inversion: ${this.tasaDeInversion}`);
+    }
+}
+
+class TarjetaDeCredito extends CuentaBancaria { 
+    constructor(titular, saldo, limiteDeCredito) { 
+        super(titular, saldo); 
+        this.limiteDeCredito = limiteDeCredito;
+    }
+
+    imprimeDetallesCuenta() {
+        super.imprimeDetallesCuenta();
+        console.log(`Limite de Credito: ${this.limiteDeCredito}`);
+    }
+}
+
+const pagare1 = new Pagare('Juan', 1000, 13.5);
+const tc1 = new TarjetaDeCredito('Manuel', 500, 47000);
+
+pagare1.imprimeDetallesCuenta();
+tc1.imprimeDetallesCuenta();
+
+Martes 12Sep23
+
+Prototype
+
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+		"Arrow functions don't have their own bindings to this, arguments, or super, and should not be used as methods."
+
+class Aritmetica {
+    constructor(num1, num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+    }
+}
+
+Aritmetica.prototype.suma = () => {
+    return this.num1 + this.num2;  <----- en un Arrow Function no hay conexión con el this de la clase (INCORRECTO)
+}
+
+Aritmetica.prototype.suma = function () {   
+    return this.num1 + this.num2;  <----- (CORRECTO)
+}
+
+Aritmetica.prototype.resta = function () {   
+    return this.num1 - this.num2;
+}
+
+Todas las clases en JavaScript tienen prototype
+
+Array.prototype.mensaje = function () {
+    return "prueba"
+}
+
+Array.prototype.primerElemento = function () { 
+    return this[0];
+}
+
+Array.prototype.recorreElementos = function () { 
+    this.forEach(element => console.log(element));
+}
+
+Hoy en día el uso de Javascript va más allá que el desarrollo de scripts para aplicaciones web. Por ejemplo:
+
+	Web Apps, Web API's ---------> NodeJS
+	Aplicaciones Web Modernas ---> Angular, React, Vue, Svelte
+	Aplicaciones Desktop --------> Electron
+	Aplicaciones Moviles --------> React Native
+
+MODULOS
+	El código que escribimos en JavaScript se puede modularizar (Separar en múltiples archivos) y aún así ser código
+		llamable desde otros archivos.
+
+	Módulo ---> encapsula functions, variables, constantes, arreglos, objetos, clases
+		private members ---> sólo de uso dentro del módulo
+		public members ----> usables por otros módulos.
+
+	const prompt = require('prompt-sync')(); <------ referencia a un módulo externo (ni de nosotros, ni de NodeJS)
+
+		npm install prompt-sync
+			----------------> node_modules
+
+	Análogo a lo que pasa en C# en Java
+
+		using System.IO (namespaces) .dll.... nuget
+
+		import java.io.InputStream;  (packages) .jar .... maven, gradle
+
+
+	Javascript
+		require(.....) declara el uso de alguna dependencia.
+
+		ES6 import y export son palabras 2015 para importar y exportar funcionalidad.
+
+		IIFE pueden compartir (exportar) funciones y otros elementos al exterios por medio de un objeto en el return
+
+// IIFE
+const estadisticas = (function() {
+
+    const suma = (num1, num2) => num1 + num2;
+    const elevaAlCuadrado = (num1, num2) => num1 * num2;
+
+    function promedioNumeros (arreglo) {
+        return arreglo.reduce(suma) / arreglo.length;
+    }
+
+    return {
+        promedioNumeros
+    }
+
+}());
+
+const tableDeNumeros = [198,234,342,123,456,789];
+console.log(estadisticas.promedioNumeros(tableDeNumeros));	
+
+a) Node Exports (NodeJS, Angular, React ...)
+
+	exports.promedioNumeros = (array) => array.reduce((a, b) => a + b, 0) / array.length
+	exports.saludaAlUsuario = () => console.log('Hola Usuario');
+	exports.PI = Math.PI;
+
+	ó
+
+	promedioNumeros = (array) => array.reduce((a, b) => a + b, 0) / array.length
+	saludaAlUsuario = () => console.log('Hola Usuario');
+	PI = Math.PI;
+
+	module.exports = { promedioNumeros, saludaAlUsuario, PI };
+
+b) Node Imports
+	const funciones = require('./exportacionNodeJS.js');
+
+	console.log(funciones.promedioNumeros(tabla)); 
+	console.log(`El valor de PI es ${funciones.PI}` );
+
+APLICACIONES WEB TRADICIONALES (.html, .css, .js)
+
+El formato de módulos de Node no es aplicable
+
+Aquí se utiliza el formato ES6 de Módulos
+
+a) ES6 Exports
+
+	export const PI = Math.PI;
+
+	export class Cuadrado {
+	    constructor(lado) {
+        	this.lado = lado;
+	    }
+	    areaDelCuadrado() {
+	        return this.lado * this.lado;
+	    }
+	}
+
+	export function saludaAlUsuario(usuario) {
+	    alert(`Hola ${usuario}`)
+	}
+
+b) ES6 Imports
+
+import {PI, saludaAlUsuario, Cuadrado} from './exportacionWeb.js'
+
+saludaAlUsuario("Ivan");
+console.log(PI);
+const lado = prompt("Ingrese el lado del cuadrado: ");
+const cuadrado = new Cuadrado(lado);
+alert("El area del cuadrado es: " + cuadrado.areaDelCuadrado());
+
+import * as funciones  from './exportacionWeb.js'
+
+funciones.saludaAlUsuario("Ivan");
+console.log(funciones.PI);
+const lado = prompt("Ingrese el lado del cuadrado: ");
+const cuadrado = new funciones.Cuadrado(lado);
+alert("El area del cuadrado es: " + cuadrado.areaDelCuadrado());
+
+<html>
+    <head>
+        <title>Modulos JS</title>
+        <script type="module" src="./importacionWeb.js">
+
+        </script>
+
+    </head>
+    <body>
+        <h1>Modulos JS</h1>
+    </body>
+</html>
+
+OJO: PARA PODER CARGAR UN MODULO EN UN ARCHIVO HTML ESTE TIENE QUE CARGARSE YA SEA POR http://.... https://....
+	UNA ALTERNATIVA ES USAR LA EXTENSION "LIVE SERVER" "Launch a development local Server with live reload 
+						feature for static & dynamic pages"
+
+		file:///C:/Users/cachavez/CursoJS/modulos/ImportacionWeb.html  <----- No, asi no carga un módulo
+
+		http://127.0.0.1:5500/modulos/ImportacionWeb.html <------ Así, si carga el módulo
+
+Ejercicio:
+	Crear dos Modulos
+
+		Cadenas.js
+			inversorCadena();
+			mideCadena();
+		Geometria.js
+			class Rectangulo --> base altura
+			comparacionRectangulos() --> calculando el area de c/u devolver cual es el más grande
+
+		Principal.js
+			Hace uso de las funcionalidades en los dos modulos previos
+
+Miércoles 13Sep23
+
+Programación Asíncrona ---> Promises
+
+	Web App ----------> HTTP Request ------------> HTTP Server ----> .html, .css, .js
+		<------------------------------------ HTTP RESPONSE <------------------
+
+	DHTML/DOM (1997/1998)
+
+	AJAX 2004-2005 (Actualizaciones Parciales) Asynchronous Javascript And XML XmlHttpRequest
+
+	jQuery 2006
+
+	Web Components (Angular, React, Vue, Svelte) SPA Applications -> Single Page Applications
+
+	ASINCRONO
+		----------> Web APIs http://fulanodominio.com/clientes/1
+
+				LATENCIA
+
+		----------> Web Sockets, TCP/IP
+
+		----------> I/O (File System)
+
+		----------> Message Queues
+
+	
+	AJAX y XmlHttpRequest
+			-----> fetch (promises), async/await (ES 2017), for await (ES 2018)
+
+	POSTMAN
+
+	Normalmente consumimos funcionalidad remota expuesta por otros servicios (propios o de terceros)
+		Servidores HTTP remotos, Web Sockets (TCP/IP), Queue Services, Cloud Services (Azure, AWS, Google Cloud),
+			Serverless code (Azure Functions, AWS Lambda Functions)
+
+	ASYNCHRONOUS PROGRAMMING IN JAVASCRIPT
+
+		CALLBACKS 
+
+			a) Timers
+
+				setTimeout ----> Una vez
+				setInterval ---> Repetitivo
+
+			b) Events
+
+			        <button id="button">Click Me</button>
+
+				let button = document.getElementById('button');
+
+				// se conecta el evento con un callback
+				button.addEventListener('click', () => { 
+				    console.log('clicked');
+				});
+
+			c) Network Events
+				C++ COBOL (CORBA)
+				Microsoft (COM DCOM COM+) 80's 90's
+				Java RMI
+
+				REST API (Linux,WIndows,Mac,Cloud/C#,Java,JavaScript,Python,Go,PHP/SQL Server, MongoDB, Oracle, MySQL)
+
+				https://rapidapi.com/wirefreethought/api/geodb-cities/
+
+				endpoints
+
+				XmlHttpRequest (AJAX) 2006 ->
+					REST API Calls
+
+				jQuery $.ajax({
+					url:
+					method:
+					async:
+					success:
+					error:
+				})
+
+				axios()
+
+				fetch()  ---> procesar APIs en un proceso conducido por promises.
+
+function obtenPaisesPromises() {
+    fetch("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=10", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
+            "x-rapidapi-key": "05b37d25a6msh52f04c347257d2bp167eb7jsna8e4fd0f7bca"
+        }
+    }).then((response) => {
+        response.json().then((respuesta) => {
+            respuesta.data.forEach((pais) => {
+                console.log(pais.name);
+            });
+        });
+    }).catch(error => {
+        console.log(`El error es: ${error.message}`);
+    }).finally(() => {
+        console.log("Proceso concluido");
+    });
+}
+
+			d) I/O Operaciones (file system)
+
+Jueves 14Sep23
+
+PROMISES (ES6)
+	We all know that javascript is a synchronous programming language 
+		but callback functions help to make it an asynchronous programming language.
+
+	The Promise the object represents the eventual completion (or failure) of an asynchronous 
+		operation and its resulting value.
+
+	Essentially, promises are identical to the real-life commitments we make in our daily lives.
+
+		Pending: You don't know whether you will have time or not.
+
+		Fulfilled: You gave them a party
+
+		Rejected: You don't give a party to them
+
+function obtenPaisesPromises() {
+    fetch("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=10", {  // PENDING
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
+            "x-rapidapi-key": "05b37d25a6msh52f04c347257d2bp167eb7jsna8e4fd0f7bca"
+        }
+    }).then((response) => {   // FULFILLED
+        response.json().then((respuesta) => {
+            respuesta.data.forEach((pais) => {
+                console.log(pais.name);
+            });
+        });
+    }).catch(error => {  // REJECTED
+        console.log(`El error es: ${error.message}`);
+    }).finally(() => {
+        console.log("Proceso concluido");
+    });
+}
+
+new Promise( //* executor*// function(resolve, reject) { ... } ); <--- CREACION
+
+let partyPromise = true;
+let giveParty = new Promise(function (resolve, reject) {
+ setTimeout(() => {
+ if (partyPromise) {
+ resolve(“I given party to friends”);
+ } else {
+ reject(“I am not given party to friends”);
+ }
+ }, 5 * 1000);
+});
+
+
+function MakePromise(partyPromise) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            if (partyPromise) {
+                resolve("I am giving a party to my friends");
+            } else {
+                reject("I am not giving party to my friends");
+            }
+        }, 5 * 1000);
+    });
+}
+
+const promesa = MakePromise(true);
+
+promesa
+  .then(exito => console.log(exito))
+  .catch(error => console.log(`Ocurrió un error: ${error}`))
+  .finally(() => console.log("Finalizado"));
+
+
+const fs = require('fs').promises; 
+
+const fs = require('fs').promises; 
+
+const frutas_info = fs.readFile('C:\\Users\\cachavez\\CursoJS\\loops\\frutas.txt', 'utf8')
+    .then((data => console.log(data)))
+    .catch((err) => console.log(err));
+
+ES 2017
+	async y await
+
+	Ejercicio:
+
+		Preguntarle al usuario por algun platillo Spaghetti Arrabiata Burger Pizza Pancakes
+
+		Recuperar las instrucciones de la receta
+			www.themealdb.com/api/json/v1/1/search.php?s=______
+
+		tomar la primera del resultado y mostrar el campo strInstructions
+
+NodeJS
+	Web Apps, Web API
+		-------------> Azure, Amazon AWS, Oracle, Google, Alibaba
+
+	node -v
+	npm -v
+
+	...node-web-api
+		1. Crear un folder donde almacenar la aplicación
+		2. Inicializar la aplicación "npm init -y"
+		3. Instalar dependencias (paquetes)
+			express (web apps y web apis)
+							npm install express --save
+			https://www.toptal.com/developers/gitignore/
+				.gitignore
+		4. Implementar la funcionalidad de la aplicacion
+			index.js
+
+const express = require('express');
+
+const app = express();
+app.use(express.json());  // En Express 4.x sustituye al body-parser
+
+const nombres = ['Juan', 'Pedro', 'Maria'];
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+
+// HTTP endpoints
+app.get('/clientes/nombres', (req, res) => {
+    res.json(nombres);
+});
+
+app.post('/clientes/nombres/agregar', (req, res) => {
+    nombres.push(req.body.nombre);
+    res.json("Nombre agregado correctamente");
+});
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
