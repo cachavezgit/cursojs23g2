@@ -1105,6 +1105,118 @@ app.post('/clientes/nombres/agregar', (req, res) => {
     res.json("Nombre agregado correctamente");
 });
 
+Viernes 15Sep23
+
+MySQL
+cachavezmysql.mysql.database.azure.com
+
+User: cachavez
+Password: Pa$$w0rd5678
+
+New Database ----> cursoves
+create table nombres (
+	clave int primary key auto_increment,
+	nombre char(50)
+)
+
+insert into nombres (nombre) values ('Juan')
+
+select * from nombres;
+
+Conectar Node a una DB
+NodeJS
+	Ecosistema de paquetes (npm, yarn <--package manager)
+		Database Connections ----- Driver -----> MySQL
+
+	1. Instalar el driver en cuestión para NodeJS
+		npm install mysql <-----driver de mysql para NodeJS
+
+	2. Cargar el drive en el proyecto
+		const mysql = require("mysql");
+
+	3. Crear una conexión en el código a el server en cuestion (mysql.createConnection...)
+
+		host:
+		user:
+		password:
+		database:
+
+const db = mysql.createConnection({
+
+    host: "cachavezmysql.mysql.database.azure.com",
+
+    user: "cachavez",
+
+    password: "Pa$$w0rd5678",
+
+    database: "cursoves",
+
+});
+
+	4. Utilizar el objeto db para conectarse a MySQL
+
+	5. Hacer consultas o modificaciones
+
+app.get('/clientes/nombres', (req, res) => {
+    let sql = "SELECT nombre FROM nombres";
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log(result);
+        res.json(result);
+    });
+});
+
+TYPESCRIPT
+
+	So, what exactly is TypeScript? And how can we use it? 
+
+	Well, it really is as simple as "TypeScript generates JavaScript", 
+	to quote Anders Hejlsberg, the designer of the TypeScript language.
+
+	Typescript es un superset de Javascript
+
+	1. Crear un proyecto NodeJS intro-typescript
+
+		npm init -y   <--- (-y) aceptan los defaults de las preguntas
+			----> package.json
+
+	2. Instalar typescript de forma global (-g)
+	
+		npm install -g typescript
+
+	3. hola-mundo.ts
+
+		tsc (compilador de typescript)
+		
+		tsc --version 5.2.2
+
+	4. tsc --init   ----------> tsconfig.json <- parámetros de configuración de tsc
+
+	Typescript ----> permite que el JS developer acceda a un formato con tipos.
+	Typescript ----> por medio de tsc genera el .js para que los browsers y nodejs lo entienda.
+
+	tsc -w -------> Modo Watch
+
+	5. 	
+
+
+Classes con typescript
+
+Typescript soporta la idea de interfaces
+
+	interface IDemo{
+	   id:string,
+	   name:string
+	}
+
+	
+Carlos Ivan Chavez Fuentes
+cachavezf@gmail.com
+
+
+
+
+
 
 
 
